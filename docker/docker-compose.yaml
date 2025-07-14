@@ -1,0 +1,12 @@
+# @format
+
+version: "3.9"
+
+services:
+  quantum-vault:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: quantum-vault
+    ports:
+      - "3001:3001"

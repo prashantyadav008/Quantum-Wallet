@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-cyber-black text-white font-rajdhani m-0 p-0 min-h-screen overflow-x-hidden;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(157, 0, 255, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 85% 15%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 15% 85%, rgba(255, 0, 214, 0.1) 0%, transparent 50%);
+}
+
+.glass-panel {
+  @apply backdrop-blur-md bg-cyber-dark/50 border border-cyber-purple-600/30 rounded-lg;
+}
+
+.cyber-border {
+  position: relative;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #00BFFF, #9D00FF, #FF00D6);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  padding: 1px;
+}
+
+.cyber-border-content {
+  @apply bg-cyber-dark rounded-lg p-4;
+}
+
+.cyber-glow {
+  text-shadow: 0 0 5px rgba(0, 191, 255, 0.7), 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.cyber-button {
+  @apply relative overflow-hidden py-2 px-6 rounded-md text-white font-orbitron 
+  transition-all duration-300 transform hover:scale-105 hover:shadow-neon-blue
+  focus:outline-none focus:ring-2 focus:ring-cyber-blue-400 focus:ring-opacity-50;
+  background: linear-gradient(90deg, rgba(0, 191, 255, 0.8), rgba(157, 0, 255, 0.8));
+}
+
+.cyber-button::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  background: linear-gradient(90deg, rgba(157, 0, 255, 0.8), rgba(255, 0, 214, 0.8));
+}
+
+.cyber-button:hover::before {
+  @apply opacity-100;
+}
+
+.cyber-button span {
+  @apply relative z-10;
+}
+
+.neon-text {
+  @apply animate-glow font-orbitron;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cyber-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-cyber-blue-500 to-cyber-purple-500 rounded-full;
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.5;
+  }
+}
+
+.flicker-text {
+  animation: flicker 4s linear infinite;
+}
